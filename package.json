@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-xlsx-to-database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mateusmforte/nodejs-xlsx-to-database.git",
+  "author": "Mateus Moura forte <m-forte@hotmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-xlsx": "^0.15.0"
+  }
+}
