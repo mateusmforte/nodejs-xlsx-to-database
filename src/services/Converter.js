@@ -1,14 +1,20 @@
 const Xlxs = require('node-xlsx');
 
-const convertToJSON = (file, removeFirstLine = false) => {
-	let xlxsFile = Xlxs.parse(file);
-	if (removeFirstLine) {
-		xlxsFile.map(item => {
-			item.data.shift();
-		});
-	}
-	let convertedFile = JSON.stringify(xlxsFile);
+const convertXLSXToJSON = (files, removeFirstLine = false) => {
+	let data = [];
+	files.forEach(file => {
+		xlsxFile = Xlxs.parse(file);
+		data.push(xlsxFile);
+	});
+	data.forEach(item => {
+		if (removeFirstLine) {
+			item.map(content => {
+				content.data.shift();
+			});
+		}
+	});
+	let convertedFile = JSON.stringify(data);
 	return convertedFile;
 };
 
-module.exports = { convertToJSON };
+module.exports = { convertXLSXToJSON: convertXLSXToJSON };
